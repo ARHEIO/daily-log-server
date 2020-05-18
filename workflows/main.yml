@@ -1,0 +1,18 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - master
+    - release/*
+
+jobs:
+  deploy:
+    name: deploy to staging
+    runs-on: ubuntu-18.04
+
+    steps:
+    - name: GitHub Action for Heroku
+      uses: actions/heroku@1.0.0
+      env: # Or as an environment variable
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}

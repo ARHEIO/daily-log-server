@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  database:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: selfcare
+      MYSQL_USER: selfcare
+      MYSQL_PASSWORD: selfcare
+    volumes:
+      - ./volumes/mysql:/var/lib/mysql
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
